@@ -2,6 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cors from 'cors';
+import 'regenerator-runtime/runtime';
+import 'core-js/stable';
 import expressValidator from 'express-validator';
 import authRoute from './routers/auth';
 import userRoutes from './routers/user';
