@@ -40,7 +40,8 @@ const seedDatabase = async ()=> {
          quantity: '1',
          status: 'add',
          count: '1',
-         producedBy: 'cadbuary'
+         producedBy: 'cadbuary',
+         image: 'image1'
         },
         {
          title: 'strawberry',
@@ -49,7 +50,8 @@ const seedDatabase = async ()=> {
          quantity: '1',
          status: 'add',
          count: '1',
-         producedBy: 'guiness'
+         producedBy: 'guiness',
+         image: 'image2'
         },
         {
          title: 'orange',
@@ -58,7 +60,8 @@ const seedDatabase = async ()=> {
          quantity: '1',
          status: 'add',
          count: '1',
-         producedBy: 'peak'
+         producedBy: 'peak',
+         image: 'image3'
         },
     ]
     

@@ -19,12 +19,13 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS products (
     "id" UUID PRIMARY KEY NOT NULL DEFAULT uuid_generate_v4(),
     "title" VARCHAR(100) NOT NULL,
-    "price" VARCHAR(100) UNIQUE NOT NULL,
+    "price" VARCHAR(100) NOT NULL,
     "description" VARCHAR(100) NOT NULL,
     "quantity" INT NOT NULL,
     "status" VARCHAR(100) NOT NULL,
     "count" INT NOT NULL,
-    "producedBy" VARCHAR NOT NULL
+    "producedBy" VARCHAR(100) NOT NULL,
+    "image" VARCHAR(300) NOT NULL
 );
 `;
 

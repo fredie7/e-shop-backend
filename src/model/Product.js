@@ -11,8 +11,9 @@ class Product {
             "status",
             "count",
             "producedBy",
+            "image"
         )
-        VALUES($1,$2,$3,$4,$5,$6,$7)
+        VALUES($1,$2,$3,$4,$5,$6,$7,$8)
         returning *`;
         const values = [
             data.title,
@@ -22,6 +23,7 @@ class Product {
             data.status,
             data.count,
             data.producedBy,
+            data.image
         ]
         try {
             const { rows } = await db.query(createProduct, values)
@@ -57,7 +59,7 @@ class Product {
         const text = `SELECT * FROM products`;
         try {
             const {rows} = await db.query(text);
-            return rows[0];
+            return rows;
         } catch (error) {
             logger.info(error)
             return error

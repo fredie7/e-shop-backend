@@ -10,9 +10,8 @@ const authController = {
     signup: async (req,res)=> {
         const existingUser = await User.getByField("email", req.body.email);
         if (existingUser) {
-        return res.status(401).json({ error: 'user already exists' });
+            return res.status(401).json({ error: 'user already exists' });
         }
-        console.log(req.body)
         const newUser = await User.create({ ...req.body, isAdmin: false, password: hashPassword(req.body.password) });
         return res.status(201).json(newUser);
     },
