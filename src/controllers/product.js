@@ -4,6 +4,8 @@ const productController = {
     createProduct: async (req, res, next) => {
         try {
             const newProduct = await Product.create({...req.body, image: req.file.path})
+            console.log(newProduct)
+            console.log(req)
             return res.status(200).json(newProduct)
         } catch (error) {
             return res.status(500).json({error: 'internal server eror'})

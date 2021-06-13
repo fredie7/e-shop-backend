@@ -7,6 +7,15 @@ const productValidation = {
     req.check('status', 'fill in status').notEmpty();
     req.check('count', 'fill in the product count').notEmpty();
     req.check('producedBy', 'fill in the manufacturer').notEmpty();
+    req.check('image')
+    .custom((value)=> {
+      if (req.file.mimetype === 'image/jpeg' || req.file.mimetype === 'image/jpg') {
+        // mimetype: 'image/jpeg',
+        return '{.jpeg}'
+      } else {
+        return false
+      }
+    }).withMessage('Please, only submit jpeg documents')
     // req.check('image', 'upload product image').notEmpty();
 
     const errors = req.validationErrors()
