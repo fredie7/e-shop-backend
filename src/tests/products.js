@@ -42,7 +42,7 @@ describe('POST /api/v1/createProduct', () => {
             status:'add',
             count:5,
             producedBy:'lex company',
-            image:'image.jpg',
+            image:'image.jpeg',
         }
         console.log(order)
 

@@ -9,7 +9,7 @@ const productValidation = {
     req.check('producedBy', 'fill in the manufacturer').notEmpty();
     req.check('image')
     .custom((value)=> {
-      if (req.file.mimetype === 'image/jpeg' || req.file.mimetype === 'image/jpg') {
+      if(req.file && (req.file.mimetype === 'image/jpeg' || req.file.mimetype === 'image/jpg')) {
         // mimetype: 'image/jpeg',
         return '{.jpeg}'
       } else {
