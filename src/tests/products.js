@@ -1,9 +1,11 @@
 import chaiHttp from 'chai-http';
-import chai from 'chai';
+import chai, { use } from 'chai';
 import app from '../app'
+import fs from 'fs'
 
 chai.use(chaiHttp)
 chai.should()
+const {expect} = chai
 
 describe('POST /api/v1/createProduct', () => {
     let user = {
@@ -42,15 +44,23 @@ describe('POST /api/v1/createProduct', () => {
             status:'add',
             count:5,
             producedBy:'lex company',
-            image:'image.jpeg',
+            image:'image5.jpeg',
         }
-        console.log(order)
 
     chai.request(app)
       .post('/api/v1/createProduct')
       .set('authorization', user.token)
-      .send(order)
+      .set('content-type', 'multipart/form-data')
+      .field('title','vegetable')
+      .field('price','45')
+      .field('description','dummy description')
+      .field('quantity',3)
+      .field('status','add')
+      .field('count',5)
+      .field('producedBy',user.id)
+      .attach('image',fs.readFileSync(`${__dirname}/file.jpg`), 'file.jpg')
       .end((err,res)=> {
+        expect(res.body).to.equal({})
         res.should.have.status(201);
         res.body.should.be.a('object');
         res.body.should.have.property('producedBy')
