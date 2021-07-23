@@ -8,19 +8,19 @@ const seedDatabase = async ()=> {
         {
          name: 'lex',
          email: 'lex@gmail.com',
-         password: hashPassword('lexpassword'),
+         password: hashPassword('lexpassword1'),
          isAdmin: true,
         },
         {
          name: 'mike',
          email: 'mike@gmail.com',
-         password: hashPassword('mikepassword'),
+         password: hashPassword('mikepassword1'),
          isAdmin: false,
         },
         {
          name: 'clara',
          email: 'clara@gmail.com',
-         password: hashPassword('clarapassword'),
+         password: hashPassword('clarapassword1'),
          isAdmin: false,
         },
     ]

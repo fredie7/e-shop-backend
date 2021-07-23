@@ -18,8 +18,8 @@ app.use(cors())
 app.use(expressValidator())
 
 app.use('/api/v1/auth', authRoute);
-app.use('/api/v1', userRoutes);
-app.use('/api/v1', productRoutes);
+app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/products', productRoutes);
 
 app.get('/', (req,res)=> res.status(200).json({message: 'app running....'}))
 

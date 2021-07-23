@@ -9,6 +9,7 @@
     "start": "node build/app.js",
     "build": "babel src --out-dir build",
     "test": "npm run migrate && nyc mocha --require @babel/register  --timeout 5000 --exit src/tests",
+    "heroku-postbuild": "npm run build && npm run migrate",
     "migrate": "babel-node src/db/migration"
   },
   "author": "",

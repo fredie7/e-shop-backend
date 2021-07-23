@@ -10,8 +10,17 @@ const { createProductValidation } = productValidation;
 
 const { createProduct, getProducts, getOneProduct } = productController;
 
-router.post('/createProduct', verifyToken, upload.single('image'), createProductValidation, createProduct);
-router.get('/getProducts', getProducts);
-router.get('/product/:productId', getOneProduct);
+router.post('/', verifyToken, upload.single('image'), createProductValidation, createProduct);
+router.get('/', getProducts);
+router.get('/:productId', getOneProduct);
 
 module.exports = router;
+
+/**
+ * GET /products - List product
+ * GET /products/{id} - Get single product
+ * POST /products - Create a product
+ * PUT /products/{id} - Update a product
+ * 
+ * 
+ */

@@ -6,6 +6,6 @@ const router = express.Router();
 
 const { getUserProfile } = userController
 
-router.get('/users/:userId', verifyToken, getUserProfile);
+router.get('/:userId', verifyToken, getUserProfile);
 
 module.exports = router;
